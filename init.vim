@@ -38,11 +38,15 @@ set t_Co=256
 tnoremap jk <C-\><C-n>   
 inoremap jk <ESC>
 map <Space> <Leader>
+nnoremap <C-t> :NERDTreeToggle <CR>
+nnoremap <silent> <S-t> :CMD <CR>
 
 " Opening init.vim file
 nnoremap <F12> :vsplit $MYVIMRC <CR> 
 " Reloading init.vim file 
 nnoremap <F5> :source $MYVIMRC <CR> 
+
+
 " Use alt + h resize windows
 nnoremap <M-j>    :resize -2<CR>
 nnoremap <M-k>    :resize +2<CR>
@@ -57,12 +61,12 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
-
 " Shift + l/h in general mode will move to text buffer
 nnoremap <S-l> :bnext<CR>
 nnoremap <S-h> :bprevious<CR>
 
 
+" Custom Commands
 :command Make !g++ -std=c++17 -g -Wall % -o main && main 
 :command MakeClean !del main 
 :command CMD !start cmd
