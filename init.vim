@@ -11,9 +11,12 @@ set pastetoggle=<F4>
 set scrolloff=10
 set encoding=UTF-8
 set cursorline
+
+" Search Settings 
 set incsearch
 set nohlsearch
 
+" Contains path where the plugin will be installed
 call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
 
 Plug 'morhetz/gruvbox' " Gruvbox ColorScheme
@@ -22,8 +25,8 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'bfrg/vim-cpp-modern' " C++ Syntax Highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator' " Ctrl-l and Ctrl-h left and right in split
-Plug 'rhysd/vim-clang-format'
-Plug 'windwp/nvim-autopairs'
+Plug 'rhysd/vim-clang-format' " Formatting c/c++ code
+Plug 'windwp/nvim-autopairs' " For creating pair of opening and closing backets
 Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
 Plug 'scrooloose/nerdtree' " NERDTree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlighting' " NERDTree Syntax Highlighting
@@ -34,6 +37,8 @@ call plug#end()
 colorscheme gruvbox " Setting the colorscheme
 syntax on
 set t_Co=256
+
+" Alt(M) --  Ctrl(C) --  Shift(S) 
 
 
 " Key Mappings
