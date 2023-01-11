@@ -11,6 +11,8 @@ set pastetoggle=<F4>
 set scrolloff=10
 set encoding=UTF-8
 set cursorline
+set incsearch
+set nohlsearch
 
 call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
 
@@ -40,6 +42,13 @@ inoremap jk <ESC>
 map <Space> <Leader>
 nnoremap <C-t> :NERDTreeToggle <CR>
 nnoremap <silent> <S-t> :CMD <CR>
+
+
+" Showing or disabling the search highlights
+nnoremap <Leader>h :set hlsearch!<CR> 
+" Searching the current word in normal mode
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><CR>
+
 
 " Opening init.vim file
 nnoremap <F12> :vsplit $MYVIMRC <CR> 
