@@ -16,6 +16,12 @@ set cursorline
 set incsearch
 set nohlsearch
 
+" Coc Config
+set updatetime=500
+set signcolumn=yes
+set nobackup
+" set nowritebackup
+
 " Contains path where the plugin will be installed
 call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
 
@@ -38,7 +44,7 @@ colorscheme gruvbox " Setting the colorscheme
 syntax on
 set t_Co=256
 
-" Alt(M) --  Ctrl(C) --  Shift(S) 
+" Alt(M) --  Ctrl(C) --  Shift(S) --  Enter(<CR>)
 
 
 " Key Mappings
@@ -46,13 +52,13 @@ tnoremap jk <C-\><C-n>
 inoremap jk <ESC>
 map <Space> <Leader>
 nnoremap <C-t> :NERDTreeToggle <CR>
-nnoremap <silent> <S-t> :CMD <CR>
+nnoremap <silent> <S-t> :CMD <CR><CR>
 
 
 " Showing or disabling the search highlights
 nnoremap <Leader>h :set hlsearch!<CR> 
 " Searching the current word in normal mode
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><CR>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
 
 " Opening init.vim file
@@ -79,11 +85,56 @@ vnoremap > >gv
 nnoremap <S-l> :bnext<CR>
 nnoremap <S-h> :bprevious<CR>
 
+" Space + l/h in general mode will move to text buffer
+nnoremap <F8> :tabnext<CR>
+nnoremap <F7> :tabprevious<CR>
+nnoremap <Leader>n :tabnew<CR>
 
 " Custom Commands
 :command Make !g++ -std=c++17 -g -Wall % -o main && main 
 :command MakeClean !del main 
 :command CMD !start cmd
+
+
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Down>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Down>" :
+      \ coc#refresh()
+
+inoremap <silent><expr> <Up>
+      \ coc#pum#visible() ? coc#pum#prev(1) :
+      \ CheckBackspace() ? "\<Up>" :
+      \ coc#refresh()
 
 
 " Auto Pair  Plugin Setting
