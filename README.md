@@ -4,6 +4,12 @@
 
 * Download and install neovim for windows
 * --nvim-- must be working in __Command Prompt__
+* Download [*vim-plug*](https://github.com/junegunn/vim-plug) which is a package manager
+* create a plugged folder where the plugins will be stored
+
+>Shortcut
+    Just clone the repo in __C:\Users\UserName\AppData\Local__ and add a plugged folder in the nvim directory
+    Open the neovim and type :PlugInstall
 
 **Installing the clangd server neovim**
 
