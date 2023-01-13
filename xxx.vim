@@ -25,17 +25,19 @@ set nobackup
 " Contains path where the plugin will be installed
 call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
 
-Plug 'morhetz/gruvbox' " Gruvbox ColorScheme
-Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'bfrg/vim-cpp-modern' " C++ Syntax Highlighting
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'christoomey/vim-tmux-navigator' " Ctrl-l and Ctrl-h left and right in split
-Plug 'rhysd/vim-clang-format' " Formatting c/c++ code
-Plug 'windwp/nvim-autopairs' " For creating pair of opening and closing backets
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
-Plug 'scrooloose/nerdtree' " NERDTree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlighting' " NERDTree Syntax Highlighting
+" Plug 'morhetz/gruvbox' " Gruvbox ColorScheme
+" Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+" Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+" Plug 'bfrg/vim-cpp-modern' " C++ Syntax Highlighting
+" Plug 'neovim/nvim-lspconfig' " LSP
+
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'christoomey/vim-tmux-navigator' " Ctrl-l and Ctrl-h left and right in split
+" Plug 'rhysd/vim-clang-format' " Formatting c/c++ code
+" Plug 'windwp/nvim-autopairs' " For creating pair of opening and closing backets
+" Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+" Plug 'scrooloose/nerdtree' " NERDTree
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlighting' " NERDTree Syntax Highlighting
 
 call plug#end()
 
@@ -101,43 +103,43 @@ nnoremap <Leader>n :tabnew<CR>
 
 
 " GoTo code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 
 " Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
+" nnoremap <silent> K :call ShowDocumentation()<CR>
 
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
+" function! ShowDocumentation()
+"   if CocAction('hasProvider', 'hover')
+"     call CocActionAsync('doHover')
+"   else
+"     call feedkeys('K', 'in')
+"   endif
+" endfunction
 
 
 " use <tab> to trigger completion and navigate to the next complete item
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" function! CheckBackspace() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
-inoremap <silent><expr> <Down>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Down>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <Down>
+"       \ coc#pum#visible() ? coc#pum#next(1) :
+"       \ CheckBackspace() ? "\<Down>" :
+"       \ coc#refresh()
 
-inoremap <silent><expr> <Up>
-      \ coc#pum#visible() ? coc#pum#prev(1) :
-      \ CheckBackspace() ? "\<Up>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <Up>
+"       \ coc#pum#visible() ? coc#pum#prev(1) :
+"       \ CheckBackspace() ? "\<Up>" :
+"       \ coc#refresh()
 
 " :autocmd BufWritePost *.cpp <silent> !echo "Hello" | redraw
 
