@@ -46,6 +46,9 @@ set t_Co=256
 
 " Alt(M) --  Ctrl(C) --  Shift(S) --  Enter(<CR>)
 
+" ctrlp ignore files
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|bin)|(\.(swp|ico|git|svn|o|d))$'
+
 
 " Key Mappings
 tnoremap jk <C-\><C-n>   
@@ -136,8 +139,6 @@ inoremap <silent><expr> <Up>
       \ CheckBackspace() ? "\<Up>" :
       \ coc#refresh()
 
+" :autocmd BufWritePost *.cpp <silent> !echo "Hello" | redraw
 
-" Auto Pair  Plugin Setting
-lua << EOF
-require("nvim-autopairs").setup {}
-EOF
+lua require("usr")
