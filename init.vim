@@ -1,4 +1,13 @@
-set relativenumber
+"         
+" ██╗███╗   ██╗██╗████████╗  ██╗   ██╗██╗███╗   ███╗
+" ██║████╗  ██║██║╚══██╔══╝  ██║   ██║██║████╗ ████║
+" ██║██╔██╗ ██║██║   ██║     ██║   ██║██║██╔████╔██║
+" ██║██║╚██╗██║██║   ██║     ╚██╗ ██╔╝██║██║╚██╔╝██║
+" ██║██║ ╚████║██║   ██║ ██╗  ╚████╔╝ ██║██║ ╚═╝ ██║
+" ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝ ╚═╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+
+
+" set relativenumber
 set smarttab
 set cindent
 set tabstop=6
@@ -25,17 +34,15 @@ set nobackup
 " Contains path where the plugin will be installed
 call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
 
+Plug 'bfrg/vim-cpp-modern'
 Plug 'morhetz/gruvbox' " Gruvbox ColorScheme
-Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'bfrg/vim-cpp-modern' " C++ Syntax Highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator' " Ctrl-l and Ctrl-h left and right in split
-Plug 'rhysd/vim-clang-format' " Formatting c/c++ code
 Plug 'windwp/nvim-autopairs' " For creating pair of opening and closing backets
-Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'tpope/vim-surround' " Surrounding ysw)
 Plug 'scrooloose/nerdtree' " NERDTree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlighting' " NERDTree Syntax Highlighting
 
 call plug#end()
 
@@ -79,6 +86,9 @@ nnoremap <M-l>    :vertical resize +2<CR>
 " Moving selected lines with J K
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+"Yanking to clipboard
+vnoremap <Leader>y "+Y <CR>
 
 " Better tabbing
 vnoremap < <gv
@@ -140,5 +150,6 @@ inoremap <silent><expr> <Up>
       \ coc#refresh()
 
 " :autocmd BufWritePost *.cpp <silent> !echo "Hello" | redraw
-
-lua require("usr")
+lua << EOF
+require('nvim-autopairs').setup()
+EOF
