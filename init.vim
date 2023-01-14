@@ -29,7 +29,7 @@ set nohlsearch
 set updatetime=500
 set signcolumn=yes
 set nobackup
-" set nowritebackup
+set nowritebackup
 
 " Contains path where the plugin will be installed
 call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
