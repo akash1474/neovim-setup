@@ -1,0 +1,20 @@
+﻿---
+BasedOnStyle: LLVM
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: 'true'
+AlignConsecutiveDeclarations: 'false'
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: Always
+AllowShortLambdasOnASingleLine: All
+BreakBeforeBraces: Linux
+ColumnLimit: '140'
+ConstructorInitializerIndentWidth: '4'
+ContinuationIndentWidth: '4'
+IndentWidth: '4'
+MaxEmptyLinesToKeep: '2'
+NamespaceIndentation: Inner
+PointerAlignment: Left
+TabWidth: '4'
+UseTab: ForIndentation
+
+...

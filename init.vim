@@ -27,6 +27,7 @@ set nohlsearch
 
 " Coc Config
 set updatetime=500
+set termguicolors
 set signcolumn=yes
 set nobackup
 set nowritebackup
@@ -36,6 +37,8 @@ call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
 
 Plug 'bfrg/vim-cpp-modern'
 Plug 'morhetz/gruvbox' " Gruvbox ColorScheme
+" Plug 'ellisonleao/gruvbox.nvim' 
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -63,6 +66,7 @@ inoremap jk <ESC>
 map <Space> <Leader>
 nnoremap <C-t> :NERDTreeToggle <CR>
 nnoremap <silent> <S-t> :CMD <CR><CR>
+nnoremap fmt :!clang-format -i -style=file:"C:\Users\Akash Pandit\AppData\Local\nvim\.clang-format" "%:p" <CR><CR>
 
 
 " Showing or disabling the search highlights
@@ -150,6 +154,7 @@ inoremap <silent><expr> <Up>
       \ coc#refresh()
 
 " :autocmd BufWritePost *.cpp <silent> !echo "Hello" | redraw
+
 lua << EOF
 require('nvim-autopairs').setup()
 EOF
