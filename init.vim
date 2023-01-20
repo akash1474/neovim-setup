@@ -153,8 +153,18 @@ inoremap <silent><expr> <Up>
       \ CheckBackspace() ? "\<Up>" :
       \ coc#refresh()
 
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Tab for autocompletion and Shift-Tab to navigate
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<S-Tab>"
+
 " :autocmd BufWritePost *.cpp <silent> !echo "Hello" | redraw
 
 lua << EOF
-require('nvim-autopairs').setup()
+require'nvim-autopairs'.setup()
 EOF
