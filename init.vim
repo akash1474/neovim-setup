@@ -32,8 +32,10 @@ set signcolumn=yes
 set nobackup
 set nowritebackup
 
+set wrap!
+
 " Contains path where the plugin will be installed
-call plug#begin("C:/Users/Akash Pandit/AppData/Local/nvim/plugged")
+call plug#begin("C:/Users/ADMIN/AppData/Local/nvim/plugged")
 
 Plug 'bfrg/vim-cpp-modern'
 Plug 'morhetz/gruvbox' " Gruvbox ColorScheme
@@ -165,6 +167,3 @@ inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<S-Tab>"
 
 " :autocmd BufWritePost *.cpp <silent> !echo "Hello" | redraw
 
-lua << EOF
-require'nvim-autopairs'.setup()
-EOF
